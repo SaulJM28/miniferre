@@ -1,0 +1,7 @@
+/* var colors */
+:root{
+    --color-vanilla: #EAE2B7;
+}
+body{
+    background-color: var(--color-vanilla);
+}
