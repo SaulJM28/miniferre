@@ -24,7 +24,7 @@
                             <input type="text" class="form-control" required>
                         </div>
                         <div class="col-md-12 mb-3 d-flex justify-content-center">
-                            <button class="btn btn-orange-c text-light-gray">Iniciar sesion</button>
+                            <a  href = "<?= base_url('inicio') ?>" class="btn btn-orange-c text-light-gray">Iniciar sesion</a>
                         </div>
                     </form>
                 </div>
