@@ -15,7 +15,25 @@ class Sesion extends BaseController
 
     public function index()
     {
+        $this->data['js'] = ['sesion'];
         $this->data['content'] = 'sesion/login';
         return view("main/main", $this->data);
+    }
+
+    public function logIn()
+    {
+
+        if(!$this->request->is('POST')){
+            $this->response->setStatusCode(404);
+        }
+
+        $usuario =  $this->request->getVar('usuario');
+        $password =  $this->request->getVar('password');
+        $pwdEncrypt =  password_hash($this->encryption->encrypt_var($password), PASSWORD_DEFAULT);
+
+        return $this->response->setJSON([
+            "msg" => 200,
+            "txt" => "Bienvenido",
+        ]);
     }
 }

@@ -14,18 +14,18 @@
                                 width="100">
                         </div>
                     </div>
-                    <form action = "#" class="row">
+                    <form action="#" class="row" id="form">
                         <div class="col-md-12 mb-3">
                             <label for="" class="form-label">Usuario</label>
-                            <input type="text" class="form-control" required>
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="" class="form-label">Contraseña</label>
-                            <input type="text" class="form-control" required>
-                        </div>
-                        <div class="col-md-12 mb-3 d-flex justify-content-center">
-                            <a  href = "<?= base_url('inicio') ?>" class="btn btn-orange-c text-light-gray">Iniciar sesion</a>
-                        </div>
+                            <input type="text" name="usuario" id="usuario" class="form-control">
+                            <div class="col-md-12 mb-3">
+                                <label for="" class="form-label">Contraseña</label>
+                                <input type="text" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="col-md-12 mb-3 d-flex justify-content-center">
+                                <button type="submit" class="btn btn-orange-c text-light-gray">Iniciar
+                                    sesion</button>
+                            </div>
                     </form>
                 </div>
             </div>
