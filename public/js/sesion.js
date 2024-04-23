@@ -1,7 +1,8 @@
+
+
 document.getElementById("form").addEventListener("submit", function (event) {
-    event.preventDefault();
+  event.preventDefault();
     const data =  new FormData(document.getElementById("form"));
-    console.log(data);
     fetch(path + "iniciar-sesion", {
       method: "POST",
       body: data,
