@@ -2,12 +2,14 @@
 
 namespace App\Controllers;
 
+use App\Libraries\ValidationErrors;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use App\Libraries\Encryption;
 
 /**
  * Class BaseController
@@ -59,9 +61,25 @@ abstract class BaseController extends Controller
     {
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
-
         // Preload any models, libraries, etc, here.
-
         // E.g.: $this->session = \Config\Services::session();
+        $this->session = \Config\Services::session();
+        /* configuracion de la libreria de encryptacion */
+        $this->encryption = new Encryption;
+        $this->configSession();
+        /* form validation and customs errors*/ 
+        $this->errors = new ValidationErrors();
+        $this->validation = \Config\Services::validation();
+    }
+
+    public function configSession(){
+        //obtenemos la variable de sesion
+        $login = $this->session->has('login');
+        /* validamos si exite true en login */
+        if($login == TRUE){
+            //configuracion de variables globales de sesion
+            $this->login = $this->session->get('login');
+            $this->user = $this->session->get('user'); 
+        }
     }
 }
