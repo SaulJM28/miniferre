@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12 d-flex justify-content-end">
-                            <button class="btn btn-sm btn-primary">Agregar</button>
+                            <a href="<?= base_url('form-producto')?>/" class="btn btn-sm btn-primary">Agregar</a>
                         </div>
                     </div>
                     <div class="row table-responsive">

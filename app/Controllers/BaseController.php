@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Libraries\ValidationErrors;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -66,6 +67,9 @@ abstract class BaseController extends Controller
         /* configuracion de la libreria de encryptacion */
         $this->encryption = new Encryption;
         $this->configSession();
+        /* form validation and customs errors*/ 
+        $this->errors = new ValidationErrors();
+        $this->validation = \Config\Services::validation();
     }
 
     public function configSession(){
